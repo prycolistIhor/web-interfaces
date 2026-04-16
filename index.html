@@ -6,66 +6,74 @@
     <title>News App</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
     <header class="header">
-      <div class="logo">LOGO</div>
+      <div class="logo">NEWS</div>
 
       <nav class="nav">
-        <input type="text" placeholder="Search..." />
+        <input type="text" id="searchInput" placeholder="Пошук новин..." />
       </nav>
 
-      <img src="./images/profile.png" class="profile"></div>
+      <div>
+        <button id="loginBtn" class="auth-btn">Login</button>
+        <img
+          src="./images/profile.png"
+          class="profile"
+          id="profileImg"
+          style="display: none"
+        />
+      </div>
     </header>
 
     <main class="layout">
       <section class="recommendations">
         <h2>Recommendations</h2>
-
-        <div class="cards">
-          <article class="card">
-            <div class="img">IMG</div>
-            <h3>Header</h3>
-            <p>Content content content...</p>
-            <span>#tag1 #tag2</span>
-          </article>
-
-          <article class="card">
-            <div class="img">IMG</div>
-            <h3>Header</h3>
-            <p>Content content content...</p>
-            <span>#tag1 #tag2</span>
-          </article>
-
-          <article class="card">
-            <div class="img">IMG</div>
-            <h3>Header</h3>
-            <p>Content content content...</p>
-            <span>#tag1 #tag2</span>
-          </article>
-        </div>
+        <div class="cards" id="cardsContainer"></div>
       </section>
 
       <aside class="sidebar">
         <h2>Last News</h2>
-
-        <div class="news-item">
-          <div class="img">IMG</div>
-          <h3>Header</h3>
-          <p>Short content...</p>
-        </div>
-
-        <div class="news-item">
-          <div class="img">IMG</div>
-          <h3>Header</h3>
-          <p>Short content...</p>
-        </div>
+        <div class="news-list" id="newsList"></div>
       </aside>
     </main>
 
     <footer class="footer">
       <button>About</button>
-      <button>Donate</button>
+      <button id="donateBtn">Donate</button>
     </footer>
+
+    <div id="donatePopup" class="popup" style="display: none">
+      <div class="popup-content">
+        <span class="close-popup" id="closeDonate">&times;</span>
+        <h2>Support Us</h2>
+        <div class="donate-options">
+          <button class="donate-option">100 UAH</button>
+          <button class="donate-option">200 UAH</button>
+          <button class="donate-option">500 UAH</button>
+          <button class="donate-option">1000 UAH</button>
+        </div>
+        <p class="thank-you" style="display: none">Thanks for support</p>
+      </div>
+    </div>
+
+    <div id="loginPopup" class="popup" style="display: none">
+      <div class="popup-content">
+        <span class="close-popup" id="closeLogin">&times;</span>
+        <h2 class="login-header">Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
