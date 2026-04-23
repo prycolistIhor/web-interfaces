@@ -11,6 +11,9 @@
       <div class="logo">NEWS</div>
 
       <nav class="nav">
+        <a href="/" class="nav-link" data-link>Home</a>
+        <a href="/about" class="nav-link" data-link>About</a>
+        <a href="/contact" class="nav-link" data-link>Contact</a>
         <input type="text" id="searchInput" placeholder="Search..." />
       </nav>
 
@@ -25,17 +28,7 @@
       </div>
     </header>
 
-    <main class="layout">
-      <section class="recommendations">
-        <h2>Recommendations</h2>
-        <div class="cards" id="cardsContainer"></div>
-      </section>
-
-      <aside class="sidebar">
-        <h2>Last News</h2>
-        <div class="news-list" id="newsList"></div>
-      </aside>
-    </main>
+    <main id="app-content" class="layout"></main>
 
     <footer class="footer">
       <button>About</button>
@@ -74,6 +67,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
