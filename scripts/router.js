@@ -1,19 +1,23 @@
-import { setState } from './state.js';
+import { setState, BASE_PATH } from "./state.js";
 
 export const navigateTo = (url) => {
-    history.pushState(null, null, url);
+    const fullPath = url.startsWith(BASE_PATH) ? url : BASE_PATH + url;
+    history.pushState(null, null, fullPath);
+
     setState({ currentPage: url });
 };
 
 export const initRouter = () => {
     window.addEventListener("popstate", () => {
-        setState({ currentPage: window.location.pathname });
+        const cleanPath = window.location.pathname.replace(BASE_PATH, "") || "/";
+        setState({ currentPage: cleanPath });
     });
 
     document.addEventListener("click", (e) => {
-        if (e.target.matches("[data-link]")) {
+        const link = e.target.closest("[data-link]");
+        if (link) {
             e.preventDefault();
-            const url = e.target.getAttribute("href") || e.target.getAttribute("data-link");
+            const url = link.getAttribute("href") || link.getAttribute("data-link");
             navigateTo(url);
         }
     });

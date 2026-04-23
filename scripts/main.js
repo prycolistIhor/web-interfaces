@@ -67,25 +67,24 @@ const renderContact = () => `
 
 const render = () => {
     const path = state.currentPage;
-
-    if (path === '/' || path === '/index.html') {
-        appContent.innerHTML = renderHome();
-    } else if (path === '/about') {
+    if (path === '/about') {
         appContent.innerHTML = renderAbout();
     } else if (path === '/contact') {
         appContent.innerHTML = renderContact();
-        
-        document.getElementById('contactForm').onsubmit = (e) => {
-            e.preventDefault();
-            setState({ 
-                contactFormData: { 
-                    name: document.getElementById('contactName').value,
-                    message: document.getElementById('contactMsg').value 
-                } 
-            });
-            alert('Дякуємо! Ваше повідомлення (умовно) надіслано, а стан оновлено.');
-        };
+    } else {
+        appContent.innerHTML = renderHome();
     }
+
+    document.getElementById('contactForm').onsubmit = (e) => {
+        e.preventDefault();
+        setState({
+            contactFormData: {
+                name: document.getElementById('contactName').value,
+                message: document.getElementById('contactMsg').value
+            }
+        });
+        alert('Дякуємо! Ваше повідомлення (умовно) надіслано, а стан оновлено.');
+    };
 };
 
 window.addEventListener('stateChange', render);
