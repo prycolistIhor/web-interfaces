@@ -11,15 +11,17 @@ export const CardList = {
             const postsRes = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10");
             const posts = await postsRes.json();
 
+            const dogPromises = posts.map(() => fetch("https://dog.ceo/api/breeds/image/random").then(res => res.json()));
+            const dogs = await Promise.all(dogPromises);
+
             let html = "";
-            for (const post of posts) {
-                const dogRes = await fetch("https://dog.ceo/api/breeds/image/random");
-                const dog = await dogRes.json();
-                html += createCard(post, dog.message);
+            for (let i = 0; i < posts.length; i++) {
+                html += createCard(posts[i], dogs[i].message);
             }
             container.innerHTML = html;
         } catch (e) {
             container.innerHTML = `<p style="color:red;">Failed to load cards</p>`;
+            console.error(e);
         }
     }
 };

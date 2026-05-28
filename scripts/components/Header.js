@@ -13,7 +13,7 @@ export const Header = () => `
       <div>
         <button id="loginBtn" class="auth-btn">Login</button>
         <img
-          src="./images/profile.png"
+          src="./images/profile.png?v=1"
           class="profile"
           id="profileImg"
           style="display: none"

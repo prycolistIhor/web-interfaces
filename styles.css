@@ -190,3 +190,44 @@ body {
   border-radius: 4px;
   font-size: 16px;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+
+  padding: 0.75rem 1rem;
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 6px;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#searchInput {
+  min-height: 48px;
+  min-width: 220px;
+
+  padding: 0.75rem 1rem;
+}
+
+.auth-btn {
+  background-color: #0066cc;
+  color: #ffffff;
+  border: none;
+}
+
+.auth-btn:hover {
+  background-color: #0052cc;
+}

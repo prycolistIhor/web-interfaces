@@ -2,15 +2,25 @@ export const HomePage = () => {
     console.log("yo");
     let newsListHTML = "";
 
-    for (let i = 0; i < 5; i++) {
-        newsListHTML += `
-          <article class="news-item">
-            <div class="img">IMG</div>
-            <h3>Header</h3>
-            <p>Content content content...</p>
-            <span>#tag1, #tag2</span>
-          </article>`;
-    }
+for (let i = 0; i < 5; i++) {
+  newsListHTML += `
+    <article class="news-item" style="width:300px;">
+      <div 
+        class="img"
+        style="
+          width:100%;
+          aspect-ratio:3/2;
+          background:#ddd;
+        "
+      >
+        IMG
+      </div>
+
+      <h3>Header</h3>
+      <p>Content content content...</p>
+      <span>#tag1, #tag2</span>
+    </article>`;
+}
 
     return `
       <section class="recommendations">
