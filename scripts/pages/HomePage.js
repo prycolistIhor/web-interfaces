@@ -10,7 +10,6 @@ for (let i = 0; i < 5; i++) {
         style="
           width:100%;
           aspect-ratio:3/2;
-          background:#ddd;
         "
       >
         IMG
